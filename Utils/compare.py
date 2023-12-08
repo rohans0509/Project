@@ -16,8 +16,10 @@ def run_random_ensemble(methods,n_list=[5],samples=1000,end_gf=False):
         A_list=[np.random.rand(n,n) for _ in range(samples)]
 
         for method in tqdm(methods):
+            # n
+            print("Running ",method," for n=",n)
             results[method+"_"+str(n)]=[]
-            for A in tqdm(A_list):
+            for A in A_list:
                 if method=='GE':
                     gf=get_gf(A,method="GE",end_gf=end_gf)
                 elif method=='GEPP':
